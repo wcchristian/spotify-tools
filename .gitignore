@@ -99,3 +99,6 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+/.cache-c.andersen2012@gmail.com
+/data/
