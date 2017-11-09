@@ -1,3 +1,2 @@
-requests
-spotipy
-tqdm
+spotipy==2.4.4
+tqdm==4.19.4
