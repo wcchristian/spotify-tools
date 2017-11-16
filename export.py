@@ -1,4 +1,5 @@
 import json
+import os
 
 import spotipy
 from tqdm import tqdm
@@ -32,6 +33,9 @@ def export_playlists(token):
                 playlist['tracks'] = tracks
                 export_result.append(playlist)
 
+        if not os.path.exists('data'):
+            os.makedirs('data')
+
         export_file = open('data/playlist.json', 'w')
         export_file.write(json.dumps(export_result))
         print('Finished exporting playlists.')
@@ -56,6 +60,9 @@ def export_follows(token):
             for item in tqdm(followed_artists['artists']['items']):
                 export_result.append(item['id'])
 
+        if not os.path.exists('data'):
+            os.makedirs('data')
+
         export_file = open('data/follows.json', 'w')
         export_file.write(json.dumps(export_result))
         print('Finished exporting follows.')
@@ -79,6 +86,9 @@ def export_library_tracks(token):
 
             for item in tqdm(saved_tracks['items']):
                 export_result.append(item['track']['id'])
+
+        if not os.path.exists('data'):
+            os.makedirs('data')
 
         export_file = open('data/tracks.json', 'w')
         export_file.write(json.dumps(export_result))
