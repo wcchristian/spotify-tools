@@ -19,7 +19,7 @@ def export_playlists(token):
             offset += limit
             current_size = len(results['items'])
             for item in tqdm(results['items']):
-                playlist = {}
+                playlist = dict()
                 playlist['collaborative'] = item['collaborative']
                 playlist['apiUrl'] = item['href']
                 playlist['name'] = item['name']
